@@ -17,6 +17,8 @@ app.register(uploadVideoRouter)
 app.register(createTranscriptionRoute)
 app.register(generateAICompletionRoute)
 
+// const port = process.env.PORT || 3000 ;
+
 app.listen({
     port: 3333,
 }).then(() => {
