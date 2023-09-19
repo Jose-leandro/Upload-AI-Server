@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "18.x"
+    "node": "18"
   },
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "postinstall": "prisma generate"
+    "build": "tsup src",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +20,8 @@
   "devDependencies": {
     "@types/node": "^20.6.0",
     "dotenv": "^16.3.1",
-    "prisma": "^5.3.0",
+    "prisma": "^5.3.1",
+    "tsup": "^7.2.0",
     "tsx": "^3.12.9",
     "typescript": "^5.2.2"
   },
