@@ -1,8 +1,14 @@
+# Execução de requisições de forma local em sua maquina
 # @name get-prompts
 GET http://localhost:3333/prompts
 
 ###
+# Execução de requisições para o servidor web
+# @name get-prompts
+GET https://upload-ai-server-vakr.onrender.com/prompts
 
+###
+# Execução de requisições de forma local em sua maquina
 # @name upload
 POST http://localhost:3333/videos
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -15,10 +21,34 @@ Content-Type: audio/mpeg
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 ###
+# Execução de requisições para o servidor web
+# @name upload
+POST https://upload-ai-server-vakr.onrender.com/videos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="teste.mp3"
+Content-Type: audio/mpeg
+
+< ./teste.mp3
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+# Execução de requisições de forma local em sua maquina
 # @name create-transcription
 
-POST http://localhost:3333/videos/ae253490-ab26-429f-82bc-e915e40f1c56/transcription
+POST http://localhost:3333/videos/7bcccb54-6191-4dac-824d-e7a3db277ce7.mp3/transcription
+Content-Type: application/json
+
+{
+  "prompt": "clean architecture, ddd"
+}
+
+###
+# Execução de requisições para o servidor web
+# @name create-transcription
+
+POST https://upload-ai-server-vakr.onrender.com/videos/6f3dc2ab-4549-4794-8d79-f655f269e3ea/transcription
 Content-Type: application/json
 
 {
@@ -29,6 +59,18 @@ Content-Type: application/json
 
 # @name generate-ai-completion
 POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+  "videoId": "ae253490-ab26-429f-82bc-e915e40f1c56",
+  "temperature": 0.5,
+  "prompt": "Gere um resumo sucinto da transcrição do vídeo informada a seguir: '''{transcription}'''"
+}
+
+###
+# Execução de requisições para o servidor web
+# @name generate-ai-completion
+POST https://upload-ai-server-vakr.onrender.com/ai/complete
 Content-Type: application/json
 
 {
