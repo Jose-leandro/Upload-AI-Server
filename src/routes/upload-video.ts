@@ -16,25 +16,26 @@ export async function uploadVideoRouter(app: FastifyInstance) {
         }
     })
 
-    app.post("/videos", async(request, reply) => {
+    app.post("/videos", async (request, reply) => {
         const data = await request.file()
 
-        if(!data) {
+        if (!data) {
             return reply.status(400).send({ error: "Missing file input." })
         }
 
         const extension = path.extname(data.filename)
 
-        if(extension !== ".mp3") {
+        if (extension !== ".mp3") {
             return reply.status(400).send({ error: "Invalid input type, please upload a MP3." })
         }
 
         const fileBaseName = path.basename(data.filename, extension)
+        console.log(fileBaseName)
 
         const fileUploadName = `${fileBaseName}-${randomUUID()}${extension}`
 
         // Execução de requisições de forma local em sua maquina
-     const uploadDestination = path.resolve("/opt/render/project/tmp/", fileUploadName)
+        const uploadDestination = path.resolve(__dirname, '../../tmp', fileUploadName)
 
         console.log(uploadDestination)
 
@@ -49,7 +50,7 @@ export async function uploadVideoRouter(app: FastifyInstance) {
 
         console.log(video)
         return {
-            video,
+            video
         }
     })
 }
