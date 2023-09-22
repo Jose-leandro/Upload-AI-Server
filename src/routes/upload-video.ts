@@ -33,7 +33,10 @@ export async function uploadVideoRouter(app: FastifyInstance) {
 
         const fileUploadName = `${fileBaseName}-${randomUUID()}${extension}`
 
-        const uploadDestination = path.resolve(__dirname, "../../tmp", fileUploadName)
+        // Execução de requisições de forma local em sua maquina
+         const uploadDestination = path.resolve(__dirname, "../../tmp", fileUploadName)
+
+        console.log(uploadDestination)
 
         await pump(data.file, fs.createWriteStream(uploadDestination))
 
@@ -44,6 +47,7 @@ export async function uploadVideoRouter(app: FastifyInstance) {
             }
         })
 
+        console.log(video)
         return {
             video,
         }
