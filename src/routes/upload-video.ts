@@ -34,7 +34,7 @@ export async function uploadVideoRouter(app: FastifyInstance) {
         const fileUploadName = `${fileBaseName}-${randomUUID()}${extension}`
 
         // Execução de requisições de forma local em sua maquina
-         const uploadDestination = path.resolve(__dirname, "../../tmp", fileUploadName)
+     const uploadDestination = path.resolve("/opt/render/project/tmp/", fileUploadName)
 
         console.log(uploadDestination)
 
