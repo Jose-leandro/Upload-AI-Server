@@ -18,8 +18,6 @@ export async function uploadVideoRouter(app: FastifyInstance) {
 
     app.post("/videos", async (request, reply) => {
 
-        console.log(testes)
-
         const data = await request.file()
 
         if (!data) {
