@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import fastifyMultipart from "@fastify/multipart";
 import { prisma } from "../lib/prisma";
-import path, { dirname } from "node:path";
+import path from "node:path";
 import { randomUUID } from "node:crypto";
 import fs from "node:fs";
 import { pipeline } from "node:stream";
@@ -50,7 +50,12 @@ export async function uploadVideoRouter(app: FastifyInstance) {
 
         console.log(uploadDestination)
 
-         await pump(data.file, fs.createWriteStream(uploadDestination))
+        try {
+            await pump(data.file, fs.createWriteStream(uploadDestination))
+            console.log("Arquivo foi copiado com sucesso");
+        } catch (erro) {
+            console.log("Erro ao copiar o arquivo: " + erro);
+        }
 
         const video = await prisma.video.create({
             data: {

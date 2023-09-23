@@ -48,7 +48,7 @@ Content-Type: application/json
 # Execução de requisições para o servidor web
 # @name create-transcription
 
-POST https://upload-ai-server-vakr.onrender.com/videos/54363e76-5cce-47f0-8fc6-712fe34a593b/transcription
+POST https://upload-ai-server-vakr.onrender.com/videos/9a5047d5-c1e0-4669-b271-c12abfc31238/transcription
 Content-Type: application/json
 
 {
