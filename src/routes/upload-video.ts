@@ -18,14 +18,6 @@ export async function uploadVideoRouter(app: FastifyInstance) {
 
     app.post("/videos", async (request, reply) => {
 
-        const testes = await prisma.video.create({
-            data: {
-                id: "7bab36b5-7c71-4a92-9956-27ecdf974fd2",
-                name: "teste.mp3",
-                path: "/opt/render/project/src/tmp/teste-7bab36b5-7c71-4a92-9956-27ecdf974fd2.mp3",
-            }
-        })
-
         console.log(testes)
 
         const data = await request.file()
