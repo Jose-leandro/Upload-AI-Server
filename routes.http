@@ -37,7 +37,7 @@ Content-Type: audio/mpeg
 # Execução de requisições de forma local em sua maquina
 # @name create-transcription
 
-POST http://localhost:3333/videos/7bcccb54-6191-4dac-824d-e7a3db277ce7.mp3/transcription
+POST http://localhost:3333/videos/54363e76-5cce-47f0-8fc6-712fe34a593b/transcription
 Content-Type: application/json
 
 {
@@ -48,7 +48,7 @@ Content-Type: application/json
 # Execução de requisições para o servidor web
 # @name create-transcription
 
-POST https://upload-ai-server-vakr.onrender.com/videos/6f3dc2ab-4549-4794-8d79-f655f269e3ea/transcription
+POST https://upload-ai-server-vakr.onrender.com/videos/54363e76-5cce-47f0-8fc6-712fe34a593b/transcription
 Content-Type: application/json
 
 {
