@@ -30,7 +30,7 @@ export async function generateAICompletionRoute(app: FastifyInstance) {
             model: "gpt-3.5-turbo-16k",
             temperature,
             messages: [
-                { role: "user", content: promptMessage },
+                { role: "user", content: promptMessage }
             ],
             stream: true,
         })
@@ -40,7 +40,7 @@ export async function generateAICompletionRoute(app: FastifyInstance) {
         streamToResponse(stream, reply.raw, {
             headers: {
                "Access-Control-Allow-Origin": "*",
-               "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS" 
+               "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
             }
         })
     })

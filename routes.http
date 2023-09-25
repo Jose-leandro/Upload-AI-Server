@@ -48,7 +48,7 @@ Content-Type: application/json
 # Execução de requisições para o servidor web
 # @name create-transcription
 
-POST https://upload-ai-server-vakr.onrender.com/videos/9a5047d5-c1e0-4669-b271-c12abfc31238/transcription
+POST https://upload-ai-server-vakr.onrender.com/videos/2f5b4439-cc50-45c6-ad22-7a601aa0551d/transcription
 Content-Type: application/json
 
 {
@@ -62,7 +62,7 @@ POST http://localhost:3333/ai/complete
 Content-Type: application/json
 
 {
-  "videoId": "ae253490-ab26-429f-82bc-e915e40f1c56",
+  "videoId": "2f5b4439-cc50-45c6-ad22-7a601aa0551d",
   "temperature": 0.5,
   "prompt": "Gere um resumo sucinto da transcrição do vídeo informada a seguir: '''{transcription}'''"
 }
@@ -74,7 +74,7 @@ POST https://upload-ai-server-vakr.onrender.com/ai/complete
 Content-Type: application/json
 
 {
-  "videoId": "ae253490-ab26-429f-82bc-e915e40f1c56",
+  "videoId": "2f5b4439-cc50-45c6-ad22-7a601aa0551d",
   "temperature": 0.5,
   "prompt": "Gere um resumo sucinto da transcrição do vídeo informada a seguir: '''{transcription}'''"
 }

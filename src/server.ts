@@ -1,5 +1,4 @@
 import { fastify } from "fastify"
-import { prisma } from "./lib/prisma"
 import { getAllPromptsRoute } from "./routes/get-all-prompts"
 import { uploadVideoRouter } from "./routes/upload-video"
 import { createTranscriptionRoute } from "./routes/create-transcription"
@@ -20,7 +19,7 @@ app.register(generateAICompletionRoute)
 
 app.listen({
     host: "0.0.0.0",
-    port: process.env.PORT ? Number(process.env.PORT) : 3333,
+    port: process.env.PORT ? Number(process.env.PORT) : 3330,
 }).then(() => {
     console.log("HTTP Server Running in port: " + process.env.PORT);
 })
