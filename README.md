@@ -2,8 +2,7 @@
  
  ## *Descrição do projeto*
 
- "Upload AI", uma ferramenta de upload de vídeos para o YouTube que não só simplifica o processo,
-mas também gera títulos cativantes, descrições envolventes, e isso é apenas o começo, no futuro, essa ferramenta terá ainda mais recursos incríveis.
+"Upload AI Server" em conjunto com "Upload AI"  é uma ferramenta de upload de vídeos para o YouTube que não só simplifica o processo, mas também gera títulos cativantes, descrições envolventes, e isso é apenas o começo, no futuro, essa ferramenta terá ainda mais recursos incríveis.
 
 ## *Estado do projeto*
 
