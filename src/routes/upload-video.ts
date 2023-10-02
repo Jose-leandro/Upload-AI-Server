@@ -14,49 +14,53 @@ export async function uploadVideoRouter(app: FastifyInstance) {
         limits: {
             fileSize: 1_048_576 * 25, // 25mb
         }
-    })
+    });
 
     app.post("/videos", async (request, reply) => {
 
-        const data = await request.file()
+        const data = await request.file();
 
         if (!data) {
-            return reply.status(400).send({ error: "Missing file input." })
-        }
+            return reply.status(400).send({ error: "Missing file input." });
+        };
 
-        const extension = path.extname(data.filename)
+        const extension = path.extname(data.filename);
 
         if (extension !== ".mp3") {
-            return reply.status(400).send({ error: "Invalid input type, please upload a MP3." })
-        }
+            return reply.status(400).send({ error: "Invalid input type, please upload a MP3." });
+        };
 
-        const fileBaseName = path.basename(data.filename, extension)
-        console.log(fileBaseName)
+        const fileBaseName = path.basename(data.filename, extension);
+        console.log(fileBaseName);
 
         const fileUploadName = `${fileBaseName}-${randomUUID()}${extension}`
 
         // Execução de requisições de forma local em sua maquina
-        const uploadDestination = path.resolve(__dirname, '../../tmp', fileUploadName)
+        const uploadDestination = path.resolve(__dirname, '../../tmp', fileUploadName);
 
-        console.log(uploadDestination)
+        console.log(uploadDestination);
 
         try {
-            await pump(data.file, fs.createWriteStream(uploadDestination))
+
+            await pump(data.file, fs.createWriteStream(uploadDestination));
             console.log("Arquivo foi copiado com sucesso");
+
         } catch (erro) {
+
             console.log("Erro ao copiar o arquivo: " + erro);
-        }
+        };
 
         const video = await prisma.video.create({
             data: {
                 name: data.filename,
                 path: uploadDestination,
             }
-        })
+        });
 
-        console.log(video)
+        console.log(video);
+
         return {
             video
-        }
-    })
-}
+        };
+    });
+};
