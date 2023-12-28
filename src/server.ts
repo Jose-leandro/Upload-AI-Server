@@ -5,6 +5,8 @@ import { createTranscriptionRoute } from "./routes/create-transcription";
 import { generateAICompletionRoute } from "./routes/generate-ai-completion";
 import fastifyCors from "@fastify/cors";
 
+require('dotenv').config()
+
 const app = fastify();
 
 app.register(fastifyCors, {
@@ -16,9 +18,24 @@ app.register(uploadVideoRouter);
 app.register(createTranscriptionRoute);
 app.register(generateAICompletionRoute);
 
+// Erro na tranformação de String para Numero
+// app.listen({
+//     host: "0.0.0.0",
+//     // port: process.env.PORT ? Number(process.env.PORT) : 3333,
+//     // port: 3333,
+// }).then(() => {
+//     console.log(Number(process.env.PORT))
+//     console.log(process.env.PORT)
+//     console.log("HTTP Server Running in port: " + process.env.PORT);
+// });
+
+app.get('/', function (req, res) {
+    res.send('Hello World!')
+  })
+
 app.listen({
     host: "0.0.0.0",
-    port: process.env.PORT ? Number(process.env.PORT) : 3333,
+    port: 3333,
 }).then(() => {
-    console.log("HTTP Server Running in port: " + process.env.PORT);
+    console.log("HTTP Server Running in port: 3333");
 });
