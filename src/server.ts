@@ -5,8 +5,6 @@ import { createTranscriptionRoute } from "./routes/create-transcription";
 import { generateAICompletionRoute } from "./routes/generate-ai-completion";
 import fastifyCors from "@fastify/cors";
 
-require('dotenv').config()
-
 const app = fastify();
 
 app.register(fastifyCors, {
