@@ -26,10 +26,9 @@ app.register(generateAICompletionRoute);
 //     console.log(process.env.PORT)
 //     console.log("HTTP Server Running in port: " + process.env.PORT);
 // });
-
-app.get('/', function (req, res) {
-    res.send('Hello World!')
-  })
+// app.get('/', function (req, res) {
+//     res.send('Hello World!')
+//   })
 
 app.listen({
     host: "0.0.0.0",

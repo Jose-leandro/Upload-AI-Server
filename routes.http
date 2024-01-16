@@ -23,7 +23,7 @@ Content-Type: audio/mpeg
 ###
 # Execução de requisições para o servidor web
 # @name upload
-POST https://upload-ai-server-vakr.onrender.com/videos
+POST http://localhost:3333/videos
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -37,7 +37,7 @@ Content-Type: audio/mpeg
 # Execução de requisições de forma local em sua maquina
 # @name create-transcription
 
-POST http://localhost:3333/videos/54363e76-5cce-47f0-8fc6-712fe34a593b/transcription
+POST http://localhost:3333/videos/dd502ff4-bb98-4acf-a4db-175f5b81a27c/transcription
 Content-Type: application/json
 
 {
@@ -62,7 +62,7 @@ POST http://localhost:3333/ai/complete
 Content-Type: application/json
 
 {
-  "videoId": "2f5b4439-cc50-45c6-ad22-7a601aa0551d",
+  "videoId": "08c6e943-1a47-439f-afaf-58f69f141796",
   "temperature": 0.5,
   "prompt": "Gere um resumo sucinto da transcrição do vídeo informada a seguir: '''{transcription}'''"
 }
