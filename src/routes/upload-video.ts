@@ -6,6 +6,8 @@ import { randomUUID } from "node:crypto";
 import fs from "node:fs";
 import { pipeline } from "node:stream";
 import { promisify } from "node:util";
+import { dirname } from 'path';
+import { fileURLToPath } from "node:url";
 
 const pump = promisify(pipeline)
 
@@ -19,7 +21,7 @@ export async function uploadVideoRouter(app: FastifyInstance) {
     app.post("/videos", async (request, reply) => {
 
         const data = await request.file();
-
+        console.log(data)
         if (!data) {
             return reply.status(400).send({ error: "Missing file input." });
         };
@@ -36,7 +38,10 @@ export async function uploadVideoRouter(app: FastifyInstance) {
         const fileUploadName = `${fileBaseName}-${randomUUID()}${extension}`
 
         // Execução de requisições de forma local em sua maquina
-        const uploadDestination = path.resolve(__dirname, '../../tmp', fileUploadName);
+        const currentModulePath = fileURLToPath(import.meta.url);
+        const currentModuleDir = dirname(currentModulePath);
+
+        const uploadDestination = path.resolve(currentModuleDir, '../../tmp', fileUploadName);
 
         console.log(uploadDestination);
 
